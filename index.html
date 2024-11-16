@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestão de Workshops e Colaboradores</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Adicionando o script do Highcharts -->
+
   <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
@@ -54,17 +54,17 @@
     <h2>Detalhes do Workshop</h2>
     <div id="detailsContent"></div>
     
-    <!-- Gráficos de Participação -->
+
     <h3>Gráficos de Participação</h3>
-    <div id="barChartContainer"></div> <!-- Container para o gráfico de barras -->
-    <div id="pieChartContainer"></div> <!-- Container para o gráfico de pizza -->
+    <div id="barChartContainer"></div> 
+    <div id="pieChartContainer"></div> 
   </section>
 
   <script src="script.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Exemplo de gráfico de barras
+     
       Highcharts.chart('barChartContainer', {
         chart: {
           type: 'bar'
@@ -86,7 +86,7 @@
         }]
       });
 
-      // Exemplo de gráfico de pizza
+      
       Highcharts.chart('pieChartContainer', {
         chart: {
           type: 'pie'
