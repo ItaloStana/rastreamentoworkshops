@@ -46,19 +46,19 @@ namespace WorkshopApi.Controllers
         [HttpGet("grafico")]
         public IActionResult GetGraficoColaboradores()
         {
-            // Distribuição balanceada dos colaboradores entre os workshops
+            
             var random = new Random();
             var workshopParticipants = workshops.ToDictionary(workshop => workshop, workshop => new List<Colaborador>());
 
-            // Distribuir colaboradores para os workshops de forma balanceada
+            
             foreach (var colaborador in colaboradores)
             {
-                // Escolhe aleatoriamente o workshop em que o colaborador irá participar (apenas uma escolha por colaborador)
+                
                 var selectedWorkshop = workshops[random.Next(workshops.Count)];
                 workshopParticipants[selectedWorkshop].Add(colaborador);
             }
 
-            // Gerar dados para o gráfico
+            
             var graficoData = workshops
                 .Select(workshop => new
                 {
