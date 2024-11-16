@@ -5,41 +5,41 @@ const btnColaboradores = document.querySelector('#btnColaboradores');
 const workshopDetails = document.getElementById('workshopDetails');
 const detailsContent = document.getElementById('detailsContent');
 
-const API_WORKSHOPS_URL = 'http://localhost:5050/api/workshops';  // URL da API de Workshops
-const API_COLABORADORES_URL = 'http://localhost:5050/api/colaboradores';  // URL da API de Colaboradores
+const API_WORKSHOPS_URL = 'http://localhost:5050/api/workshops';  
+const API_COLABORADORES_URL = 'http://localhost:5050/api/colaboradores';  
 
 let workshops = [];
 let colaboradores = [];
 
-// Alterna entre a visualização de Workshops e Colaboradores
+
 btnWorkshops.onclick = () => {
   document.getElementById('workshopsSection').style.display = 'block';
   document.getElementById('colaboradoresSection').style.display = 'none';
-  workshopDetails.style.display = 'none';  // Esconde os detalhes quando mudar para a lista de workshops
-  loadWorkshops();  // Carregar os dados dos workshops
+  workshopDetails.style.display = 'none'; 
+  loadWorkshops();  
 };
 
 btnColaboradores.onclick = () => {
   document.getElementById('colaboradoresSection').style.display = 'block';
   document.getElementById('workshopsSection').style.display = 'none';
-  workshopDetails.style.display = 'none';  // Esconde os detalhes quando mudar para a lista de colaboradores
-  loadColaboradores();  // Carregar os dados dos colaboradores
+  workshopDetails.style.display = 'none';  
+  loadColaboradores();  
 };
 
-// Função para carregar os workshops do backend com fetch
+
 function loadWorkshops() {
-  // Verifica se os workshops já foram carregados
+  
   if (workshops.length > 0) {
-    return;  // Se os workshops já estão carregados, não faz nada
+    return;  
   }
 
   fetch(API_WORKSHOPS_URL)
-    .then(response => response.json())  // Converte a resposta para JSON
+    .then(response => response.json())  
     .then(data => {
       workshops = data;
-      tbodyWorkshops.innerHTML = '';  // Limpa a tabela antes de adicionar os novos itens
+      tbodyWorkshops.innerHTML = '';  
       workshops.forEach(workshop => {
-        insertWorkshop(workshop);  // Função para inserir cada workshop na tabela
+        insertWorkshop(workshop);  
       });
     })
     .catch(error => {
@@ -48,15 +48,15 @@ function loadWorkshops() {
     });
 }
 
-// Função para carregar os colaboradores do backend com fetch
+
 function loadColaboradores() {
   fetch(API_COLABORADORES_URL)
-    .then(response => response.json())  // Converte a resposta para JSON
+    .then(response => response.json()) 
     .then(data => {
       colaboradores = data;
-      tbodyColaboradores.innerHTML = '';  // Limpa a tabela antes de adicionar os novos itens
+      tbodyColaboradores.innerHTML = ''; 
       colaboradores.forEach(colaborador => {
-        insertColaborador(colaborador);  // Função para inserir cada colaborador na tabela
+        insertColaborador(colaborador);  
       });
     })
     .catch(error => {
@@ -65,7 +65,7 @@ function loadColaboradores() {
     });
 }
 
-// Função para inserir um workshop na tabela
+
 function insertWorkshop(workshop) {
   let tr = document.createElement('tr');
   tr.innerHTML = `
@@ -78,16 +78,16 @@ function insertWorkshop(workshop) {
   tbodyWorkshops.appendChild(tr);
 }
 
-// Função para inserir um colaborador na tabela
+
 function insertColaborador(colaborador) {
   let tr = document.createElement('tr');
   
-  // Obtenha os workshops que o colaborador participou
+  
   const workshopsParticipados = workshops.filter(workshop => 
     workshop.participantes && workshop.participantes.includes(colaborador.nome)
   );
   
-  // Mapeie os workshops para mostrar os nomes
+ 
   const workshopsList = workshopsParticipados.length > 0 
     ? workshopsParticipados.map(workshop => workshop.nome).join(', ') 
     : 'Nenhum workshop';
@@ -102,7 +102,7 @@ function insertColaborador(colaborador) {
   tbodyColaboradores.appendChild(tr);
 }
 
-// Função para exibir os detalhes do workshop
+
 function showWorkshopDetails(workshopId) {
   const workshop = workshops.find(w => w.id === workshopId);
 
@@ -125,11 +125,11 @@ function showWorkshopDetails(workshopId) {
   generateParticipationCharts(workshop);
 }
 
-// Função para gerar gráficos de participação (barra e pizza) usando Highcharts
+
 function generateParticipationCharts(workshop) {
   const participantsCount = workshop.participantes.length;
   
-  // Gráfico de barras
+
   Highcharts.chart('barChart', {
     chart: {
       type: 'column'
@@ -153,7 +153,6 @@ function generateParticipationCharts(workshop) {
     }]
   });
 
-  // Gráfico de pizza
   Highcharts.chart('pieChart', {
     chart: {
       type: 'pie'
