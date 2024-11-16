@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Workshops e Colaboradores</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Adicionando o script do Highcharts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Gestão de Workshops e Colaboradores</h1>
+  </header>
+
+  <div class="button-container">
+    <button id="btnWorkshops">Workshops</button>
+    <button id="btnColaboradores">Colaboradores</button>
+  </div>
+
+  <section id="workshopsSection" style="display: none;">
+    <h2>Lista de Workshops</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Participantes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="colaboradoresSection" style="display: none;">
+    <h2>Lista de Colaboradores</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Workshops Participados</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="workshopDetails" style="display: none;">
+    <h2>Detalhes do Workshop</h2>
+    <div id="detailsContent"></div>
+    
+    <!-- Gráficos de Participação -->
+    <h3>Gráficos de Participação</h3>
+    <div id="barChartContainer"></div> <!-- Container para o gráfico de barras -->
+    <div id="pieChartContainer"></div> <!-- Container para o gráfico de pizza -->
+  </section>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Exemplo de gráfico de barras
+      Highcharts.chart('barChartContainer', {
+        chart: {
+          type: 'bar'
+        },
+        title: {
+          text: 'Participação por Workshop'
+        },
+        xAxis: {
+          categories: ['Desenvolvimento Web', 'React para iniciantes', 'Javascript Moderno', 'API RESTful', 'Node.js Avançado', 'Node.js Avançado']
+        },
+        yAxis: {
+          title: {
+            text: 'Número de Participantes'
+          }
+        },
+        series: [{
+          name: 'Participantes',
+          data: [5, 5, 4, 6, 7]
+        }]
+      });
+
+      // Exemplo de gráfico de pizza
+      Highcharts.chart('pieChartContainer', {
+        chart: {
+          type: 'pie'
+        },
+        title: {
+          text: 'Distribuição de Participantes por Workshop'
+        },
+        series: [{
+          name: 'Participantes',
+          data: [
+            { name: 'Desenvolvimento Web', y: 5 },
+            { name: 'React para iniciantes', y: 5 },
+            { name: 'Javascript Moderno', y: 4 },
+            { name: 'API RESTful', y: 6 },
+            { name: 'Node.js Avançado', y: 7 },
+          ]
+        }]
+      });
+    });
+  </script>
+
+</body>
+</html>

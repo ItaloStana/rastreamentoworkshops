@@ -1,0 +1,140 @@
+/* Estilo geral para o corpo e elementos */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  box-sizing: border-box; /* Garante que margens e bordas não saiam da largura definida */
+}
+
+/* Estilo do cabeçalho */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Estilo dos botões */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Sombra suave no botão */
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Efeito de zoom */
+}
+
+button:active {
+  background-color: #004085; /* Cor mais escura quando pressionado */
+}
+
+/* Estilo dos links */
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #007BFF;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Estilo das seções */
+section {
+  padding: 30px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Limita a largura máxima para evitar que o conteúdo fique muito esticado */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estilo das tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  /* Ajustes para telas menores */
+  table th, table td {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  header {
+    padding: 15px 0;
+    font-size: 22px;
+  }
+}
+
+/* Estilo para o gráfico (canvas) */
+canvas {
+  display: block;  /* Garante que o canvas ocupe toda a largura disponível */
+  width: 100%; /* Assegura que o canvas ocupe toda a largura do seu container */
+  height: auto; /* Mantém a proporção do gráfico */
+  margin: 20px auto; /* Centraliza o canvas horizontalmente e adiciona margem superior e inferior */
+  border-radius: 8px; /* Bordas arredondadas para suavizar a aparência */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar o gráfico */
+  background-color: #ffffff; /* Cor de fundo branca */
+}
+
+/* Estilo para o container do gráfico, se necessário */
+.chart-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para dar destaque ao container */
+  text-align: center; /* Centraliza qualquer texto adicional que você queira dentro do container */
+}
