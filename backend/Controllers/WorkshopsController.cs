@@ -26,12 +26,12 @@ namespace WorkshopApi.Controllers
             new Workshop { Id = 5, Nome = "Workshop de Node.js Avançado", DataRealizacao = "2024-10-15", Descricao = "Técnicas avançadas para construção de APIs com Node.js", Participantes = new List<string>() }
         };
 
-        // Controla se a distribuição dos colaboradores já foi feita
+        
         private static bool distribuido = false;
 
         public WorkshopsController()
         {
-            // Distribui os colaboradores apenas na primeira instância
+            
             if (!distribuido)
             {
                 DistribuirColaboradores();
@@ -44,7 +44,7 @@ namespace WorkshopApi.Controllers
             var random = new Random();
             var colaboradoresNaoDistribuidos = new List<string>(colaboradores);
 
-            // Distribuir todos os colaboradores aleatoriamente em pelo menos um workshop
+            
             while (colaboradoresNaoDistribuidos.Any())
             {
                 foreach (var workshop in workshops)
@@ -52,14 +52,14 @@ namespace WorkshopApi.Controllers
                     if (!colaboradoresNaoDistribuidos.Any())
                         break;
 
-                    // Pegar um colaborador aleatório ainda não distribuído
+                    
                     var colaborador = colaboradoresNaoDistribuidos[random.Next(colaboradoresNaoDistribuidos.Count)];
                     workshop.Participantes.Add(colaborador);
                     colaboradoresNaoDistribuidos.Remove(colaborador);
                 }
             }
 
-            // Garantir que alguns workshops tenham mais participantes
+           
             foreach (var colaborador in colaboradores)
             {
                 var workshop = workshops[random.Next(workshops.Count)];
@@ -76,7 +76,7 @@ namespace WorkshopApi.Controllers
             return Ok(workshops);
         }
 
-        // Novo endpoint para o gráfico de pizza: Quantidade de colaboradores por workshop
+       
         [HttpGet("colaboradores-por-workshop")]
         public IActionResult GetColaboradoresPorWorkshop()
         {
