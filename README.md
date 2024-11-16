@@ -4,14 +4,21 @@ Este projeto é uma aplicação web desenvolvida para gestão de colaboradores, 
 
 **Tecnologias Utilizadas:**
 **Backend:**
+
 **.NET 8:** Framework utilizado para desenvolver a API RESTful que fornece as funcionalidades de manipulação de colaboradores.
+
 **Entity Framework Core:** ORM (Object-Relational Mapping) usado para interagir com o banco de dados.
+
 **SQL Server:** Banco de dados utilizado para persistir as informações de colaboradores.
+
 **Swagger:** Utilizado para documentação e testes da API de forma interativa.
 
 **Frontend:**
+
 **JavaScript Vanilla:** Utilizado para construir a interface de usuário e realizar a comunicação com o backend através de requisições HTTP.
+
 **fetch API:** Utilizada para realizar requisições HTTP ao backend. A fetch é uma API nativa do JavaScript para comunicação com servidores.
+
 **HTML/CSS:** Responsável pela estruturação e estilização da aplicação para uma melhor experiência do usuário.
 
 
@@ -61,6 +68,7 @@ A interface da aplicação estará disponível em http://localhost:5500.
 
 
 **Considerações Finais**
+
 Este projeto foi desenvolvido para ser simples de configurar e escalável para a adição de novas funcionalidades. Caso haja algum problema ou dúvida durante a instalação e execução, por favor, entre em contato comigo ou abra uma issue no repositório.
 
 Se você precisar de mais detalhes sobre o código, funcionalidades ou tiver sugestões, fique à vontade para contribuir ou fazer perguntas!
