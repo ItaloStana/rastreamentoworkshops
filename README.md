@@ -67,9 +67,3 @@ dotnet restore"
 A interface da aplicação estará disponível em http://localhost:5500.
 
 
-**Considerações Finais**
-
-Este projeto foi desenvolvido para ser simples de configurar e escalável para a adição de novas funcionalidades. Caso haja algum problema ou dúvida durante a instalação e execução, por favor, entre em contato comigo ou abra uma issue no repositório.
-
-Se você precisar de mais detalhes sobre o código, funcionalidades ou tiver sugestões, fique à vontade para contribuir ou fazer perguntas!
-
